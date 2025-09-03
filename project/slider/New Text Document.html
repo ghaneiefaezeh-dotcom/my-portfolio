@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اسلایدر ساده</title>
+  <style>
+    * {box-sizing: border-box;}
+    body {font-family: system-ui, sans-serif; margin: 0; padding: 0; background:#f5f5f5; display:flex; align-items:center; justify-content:center; min-height:100vh;}
+    .slider {
+      width: 90%;
+      max-width: 800px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      height: 420px;
+      background-size: cover;
+      background-position: center;
+    }
+    /* نمونه تصاویر جایگزین برای تست */
+    .slide1 { background-image: url('https://picsum.photos/id/1018/1000/600'); }
+    .slide2 { background-image: url('https://picsum.photos/id/1015/1000/600'); }
+    .slide3 { background-image: url('https://picsum.photos/id/1016/1000/600'); }
+
+    /* کنترل‌ها */
+    .nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 12px;
+    }
+    .btn {
+      background: rgba(255,255,255,0.7);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      cursor: pointer;
+    }
+    .dot.active { background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="slider" aria-label="اسلایدر تصاویر">
+    <div class="slides" id="slides">
+      <div class="slide slide1" aria-label="اسلاید ۱"></div>
+      <div class="slide slide2" aria-label="اسلاید ۲"></div>
+      <div class="slide slide3" aria-label="اسلاید ۳"></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn" id="prev">قبلی</button>
+      <button class="btn" id="next">بعدی</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const dotsContainer = document.getElementById('dots');
+    const total = slides.children.length;
+    let index = 0; // صفر تا به عدد اسلایدها-1
+
+    // ساخت نقاط پایینی
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('span');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.dataset.index = i;
+      dotsContainer.appendChild(d);
+    }
+    const dots = Array.from(dotsContainer.children);
+
+    function update() {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + total) % total;
+      update();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % total;
+      update();
+    });
+
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        index = Number(d.dataset.index);
+        update();
+      });
+    });
+
+    // autoplay
+    let interval = setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, 3000);
+
+    // pause on hover
+    const slider = document.querySelector('.slider');
+    slider.addEventListener('mouseenter', () => clearInterval(interval));
+    slider.addEventListener('mouseleave', () => {
+      interval = setInterval(() => {
+        index = (index + 1) % total;
+        update();
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

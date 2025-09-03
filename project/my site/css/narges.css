@@ -1,0 +1,239 @@
+html{
+    height: 10000px;
+}
+.name{
+    border-width:5px;
+    border-style: double;
+    border-color: violet;
+}
+ul{
+    list-style-type:circle;
+}
+ol{
+    margin: 0%;
+    padding: 0%;
+background-color: blueviolet;
+    list-style:upper-roman;
+    list-style-position: inside;
+}
+table , td ,th{
+    border: 1px solid black;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+    width: 100%; 
+}
+td,th{
+    padding: 5px 10px;
+}
+tr:first-child{
+    background-color: aqua;
+}
+tr:hover{
+    background-color: brown;
+}
+tr:nth-child(even){
+    background-color: violet;
+}
+.size {
+    background-color: blueviolet;
+}
+.size{
+    background-color: aqua;
+    margin-top: 30px;
+    display: inline-block;
+}
+.bord{
+    background-color: brown;
+    margin-top: 50px;
+    display: inline-block;
+}
+.mainbox{
+    background-color:red ;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    align-items:center;
+}
+.mini-box{
+    height: 50px;
+    width: 16%;
+}
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.blue{
+    background-color:blue ;
+}
+.pink{
+    background-color:pink ;
+}
+.tesla{
+    background-color: pink;
+    padding: 10px;
+    margin-top: 50px;
+}
+.tesla img{
+    position: relative;
+    top: 10px;
+    bottom:10px;
+    left: 500px;
+    right: 200px;
+}
+.shima{
+    background-color: chocolate;
+    padding: 10px;
+    margin-top: 50px;
+}
+.shima img{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    border-radius: 50%;
+}
+}
+.firooze{
+    background-color: red;
+    padding: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+.firooze img{
+    position:absolute;
+    top: 0px;
+    left: 50px;
+    border-radius: 70%;
+}
+.maryam{
+    background-color: aqua;
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+}
+.maryam img{
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    border-radius: 50%;
+}
+.sussan{
+    background-color: yellow;
+    padding: 0px;
+    margin-top: 0px;
+    height: 5000px;
+
+}
+.sussan img{
+position: sticky;
+top: 0px;
+border-radius: 50%;
+}
+ .sara{
+    background-color: darkgoldenrod;
+    padding: 10px;
+    margin-top: 50px;
+    height: 500px;
+    position: relative;
+ }   
+ .sara img{
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+ }
+ .new{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+
+ }
+ .bed{
+    width: 1000px;
+    height: 50px;
+    background: linear-gradient(to right,red, blue , green);
+ }
+ .mohammad{
+    background-color: blueviolet;
+    border-width: 10px;
+    border-style: dashed;
+    border-color: black;
+    padding: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: medium;
+ }
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.drop_box{
+  
+    margin: 15px 0px;
+    position: relative;  
+
+}
+.drop_box a{
+    text-decoration: none;
+}
+.drop_box .menu{
+    background-color: blue;
+    padding: 15px 30px;
+
+}
+.drop_box ul{
+    background-color: brown;
+    list-style-type: none;
+    display: none; 
+    position: absolute;
+    top:100%;
+    left: 0;
+    width: 200px;
+}
+.drop_box ul a:hover{
+color: aliceblue;
+}
+.drop_box:hover ul{
+    display: block;
+}
+.nav{
+    background-color: rgba(71, 71, 218, 0.945);
+    border-radius: 10px;
+    padding: 10px;
+}
+.nav a{
+    text-decoration: none;
+}
+.nav ul{
+    list-style-type: none;
+}
+.nav>ul{
+    display: flex;
+}
+.nav>ul li{
+    padding-right: 10px;
+}
+.sub_nav{
+    background-color: red;
+    border-radius: 10px;
+    width: 90px;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+}
+.nav>ul>li{
+    position: relative;
+}
+.nav>ul>li:hover ul{
+    display: block;
+}
